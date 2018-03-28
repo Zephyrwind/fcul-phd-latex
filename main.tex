@@ -1,0 +1,293 @@
+% ----------------------------------------------------------------------------------------------
+% ---------------------- CLASSE E TAMANHO DE LETRA DO DOCUMENTO --------------------------------
+% ----------------------------------------------------------------------------------------------
+
+% Classe e tamanho de letra do documento
+\documentclass[11pt,openright,twoside]{report}
+
+
+% ----------------------------------------------------------------------------------------------
+% --------------------------------- PACKAGES ESSENCIAIS ----------------------------------------
+% ----------------------------------------------------------------------------------------------
+
+% Conversao Caracteres
+\usepackage[utf8]{inputenc}
+% Quem tiver problemas com os acentos, trocar utf8 por latin1
+
+% Linguagen(s)
+\usepackage[portuguese,english]{babel}
+
+% Tipo de letra (ex: Times New Roman)
+\usepackage{times}
+
+% Inserir Figuras
+\usepackage{graphicx}
+
+% Indice remissivo
+\usepackage{makeidx}
+\makeindex % usar este comando para inserir indice
+
+% Glossario
+\usepackage{glossaries}
+\makeglossary % usar este comando para inserir glossario
+
+% Links
+\usepackage{hyperref}
+
+% Package para cabecalhos
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\fancyhf{} %
+\lhead{\nouppercase {\leftmark}} %
+\rhead{\nouppercase {\bf \thepage}}
+\renewcommand{\headrulewidth}{0.1pt}
+
+% Comando para inserir pagina em branco (inserida na numeracao, mas sem
+% numero impresso) para quando e' preciso obrigar um capitulo a comecar
+% do lado direito (pagina impar)
+\newcommand{\LIMPA}{
+\newpage
+\mbox{}
+\thispagestyle{empty}
+}
+
+% Igual, mas insere pagina com numero impresso (normalmente nao se usa)
+\newcommand{\LIMPAC}{
+\newpage
+\mbox{}
+\thispagestyle{plain}
+}
+
+% ----------------------------------------------------------------------------------------------
+% --------------------------------- PACKAGES EXTRA----------------------------------------
+% ----------------------------------------------------------------------------------------------
+
+%
+
+% ----------------------------------------------------------------------------------------------
+% --------------------------- ALTERAR INFORMAÇOES RELATIVAS AO PROJECTO ------------------------
+% ----------------------------------------------------------------------------------------------
+
+\newcommand{\TITULO}{GERADORES DE RUÍDO UNIFORME PARA O TESTE DE CONVERSORES ANALÓGICO-DIGITAL}
+\newcommand{\Autor}{Cláudio Filipe Duarte dos Santos}
+\newcommand{\AutorNumAluno}{42208}
+
+%Orientador e CoOrientador *sem* titulos (e.g. Prof. Doutor)
+\newcommand{\Orientador}{Guiomar Evans}
+\newcommand{\CoOrientador}{Nome Completo do Co-Orientador} %se nao se aplicar, nao importa o que aqui esteja
+
+%Se aplicavel, o supervisor pode ter um titulo (Dr., Eng.) colocado aqui
+\newcommand{\SupervisorInstituicao}{Nome Completo do Supervisor}  %se nao se aplicar, nao importa o que aqui esteja
+
+\newcommand{\AnoLectivo}{2017/2018}
+\newcommand{\Ano}{\Large{2018}}
+
+% Comentar/descomentar conforme conveniente
+%\newcommand{\TIPO}{DISSERTA\c{C}\~{A}O }
+%\newcommand{\TIPO}{TRABALHO DE PROJETO }
+
+% Comentar/descomentar conforme conveniente
+\newcommand{\MESTRADO}{MESTRADO INTEGRADO DE ENGENHARIA FÍSICA}
+
+% Comentar/descomentar conforme conveniente
+\newcommand{\IdiomaTese}{\selectlanguage{portuguese}}
+%\newcommand{\IdiomaTese}{\selectlanguage{english}}
+
+% Comentar/descomentar conforme conveniente
+%\newcommand{\Especializacao}{Especializa\c{c}\~{a}o em -- especializa\c{c}\~{a}o se aplic\'{a}vel --}
+%\newcommand{\Especializacao}{Sistemas de Informao}
+%\newcommand{\Especializacao}{Interao e Conhecimento}
+%\newcommand{\Especializacao}{Engenharia de Software }
+
+\usepackage{ifpdf}
+\ifpdf
+\pdfinfo {
+	/Author (\Autor)
+	/Title (\TITULO)
+	/Subject (\MESTRADO)
+	/Keywords ()
+	/CreationDate (D:\today)
+}
+\fi
+
+% ----------------------------------------------------------------------------------------------
+% ----------------------------------- MARGENS DA PAGINA ----------------------------------------
+% ----------------------------------------------------------------------------------------------
+\usepackage[dvips]{geometry}
+\geometry{a4paper=true,portrait=true,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+% ----------------------------------------------------------------------------------------------
+% --------------------------------- ESPAÇAMENTO ENTRE LINHAS -----------------------------------
+% ----------------------------------------------------------------------------------------------
+\usepackage{setspace}
+\setstretch{1.15}
+%\renewcommand{\baselinestretch}{1.15}
+
+% ----------------------------------------------------------------------------------------------
+% ------------------------ TAMANHO E ESPAÇAMENTO FIGURAS E TABELAS -----------------------------
+% ----------------------------------------------------------------------------------------------
+\usepackage{caption}
+\captionsetup{font={small,stretch=1.0}}
+
+% ----------------------------------------------------------------------------------------------
+% ---------------------------- CONTADORES FIGURAS E TABELAS ------------------------------------
+% ----------------------------------------------------------------------------------------------
+\usepackage{chngcntr}
+\counterwithin{figure}{chapter}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\counterwithin{table}{chapter}
+\renewcommand{\thetable}{\arabic{section}.\arabic{figure}}
+
+% ----------------------------------------------------------------------------------------------
+% ------------------------------- CONTADORES EQUAÇOES ------------------------------------------
+% ----------------------------------------------------------------------------------------------
+\usepackage{amsmath}
+\numberwithin{equation}{chapter}
+
+% ----------------------------------------------------------------------------------------------
+% --------------------------- TAMANHO E ESPAÇAMENTO FOOTNOTES ----------------------------------
+% ----------------------------------------------------------------------------------------------
+\renewcommand{\footnotesize}{\fontsize{9pt}{11pt}\selectfont}
+
+% ----------------------------------------------------------------------------------------------
+% --------------------------------- CAPA E PAG. DE ROSTO ---------------------------------------
+% ----------------------------------------------------------------------------------------------
+\begin{document}
+
+\title{\TITULO}
+\author{\Autor}
+\date{\today}
+
+\selectlanguage{portuguese}
+
+\pagestyle{empty}
+
+% ----------------------------------------------------------------------------------------------
+% ---------------------------------------- CAPA ------------------------------------------------
+% ----------------------------------------------------------------------------------------------
+\begin{center}
+\vspace{1cm}\normalfont\normalfont
+\vfill
+% Nome da Universidade
+\textsc{\normalsize\uppercase{Universidade de Lisboa}}\\
+% Nome da Faculdade
+\normalsize\uppercase{Faculdade de Ciências}\\
+% Nome do Departamento
+\normalsize\uppercase{Departamento de Física}\\
+\vspace{1cm}
+% Logotipo da Faculdade
+\includegraphics[scale=.45]{images/logo_fcul.png}\\
+%\includegraphics[scale=.6]{images/logo_ul.png}\\
+
+\vspace{2.5cm}
+\vfill
+\IdiomaTese
+\Large{\bf \TITULO}\\
+\selectlanguage{portuguese}
+\vspace{1.3cm}
+%%
+%% Eliminar na versao definitiva
+\normalsize{\bf{Relatório de Estágio I}}
+%%
+\vspace{1cm}
+\vfill
+\Large{\bf \Autor}\\
+\vspace{1,8 cm}
+\vfill
+\large{\bf{\MESTRADO}}\\
+%\normalsize{\Especializacao }\\
+\vspace{2.3cm}
+\vfill
+\large{Orientação por:}\\
+\large{Prof. \Orientador} \\
+% DESCOMENTAR a linha relevante (se alguma), removendo o % no inicio
+%e co-orientado pelo Prof. Doutor \CoOrientador \\
+%e por \SupervisorInstituicao
+\vspace{1.5 cm}
+\vfill
+
+%\vspace{1.5cm}
+\vfill
+\Ano
+\end{center}
+
+% ----------------------------------------------------------------------------------------------
+% -------------------------------------- PAGINA DE ROSTO ---------------------------------------
+% ----------------------------------------------------------------------------------------------
+\newpage
+\mbox{}
+\newpage
+
+% ----------------------------------------------------------------------------------------------
+% ------------------------------- FIM DA CAPA E PAG. DE ROSTO-----------------------------------
+% ----------------------------------------------------------------------------------------------
+
+% Inserir numeração romana
+\setcounter{page}{1}
+\pagenumbering{roman}
+
+% ----------------------------------------------------------------------------------------------
+% ----------------------------- DEDICATORIA/AGRADECIMENTOS -------------------------------------
+% ----------------------------------------------------------------------------------------------
+%\input{chapters/dedicatoria}
+%\newpage
+
+% ----------------------------------------------------------------------------------------------
+% -------------------------------- RESUMO PORTUGUES --------------------------------------------
+% ----------------------------------------------------------------------------------------------
+%\input{chapters/resumo_pt}
+%\newpage
+
+% ----------------------------------------------------------------------------------------------
+% -------------------------------- RESUMO INGLES -----------------------------------------------
+% ----------------------------------------------------------------------------------------------
+%\input{chapters/resumo_eng}
+%\newpage
+
+% ----------------------------------------------------------------------------------------------
+% ----------------------------------- INDICE ---------------------------------------------------
+% ----------------------------------------------------------------------------------------------
+\tableofcontents
+\LIMPAC
+
+% ----------------------------------------------------------------------------------------------
+% ------------------------------- LISTA TABELAS ------------------------------------------------
+% ----------------------------------------------------------------------------------------------
+\listoftables
+\LIMPAC
+
+% ----------------------------------------------------------------------------------------------
+% ------------------------------- LISTA FIGURAS ------------------------------------------------
+% ----------------------------------------------------------------------------------------------
+\listoffigures
+\LIMPAC
+
+% ----------------------------------------------------------------------------------------------
+% ------------------------------- LISTA ABREVIATURAS -------------------------------------------
+% ----------------------------------------------------------------------------------------------
+%\input{chapters/abreviaturas}
+%\newpage
+
+
+% ----------------------------------------------------------------------------------------------
+% ------------------------------- TEXTO PRINCIPAL ----------------------------------------------
+% ----------------------------------------------------------------------------------------------
+\setcounter{page}{1}
+\pagenumbering{arabic}
+
+bla
+
+%\input{chapters/introducao}
+%\input{chapters/chapter02}
+%\input{chapters/chapter03}
+% etc etc etc
+%input{chapters/conclusao}
+
+%\input{chapters/bibliografia}
+
+%\input{chapters/anexo01}
+
+\printglossary
+
+\end{document}
