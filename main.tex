@@ -1,10 +1,15 @@
+% Modelo para relatório da disciplina de Projecto de Engenharia Informatica
+% (adaptado para qualquer mestrado)
+
+% Incorpora elementos impostos pelo Regulamento de Estudos Pos-Graduados da
+% Universidade de Lisboa (Deliberacao 1506/2006 - Diario da República, 2.a série 
+% - n.o 209 - 30 de Outubro de 2006)
+
 % ----------------------------------------------------------------------------------------------
 % ---------------------- CLASSE E TAMANHO DE LETRA DO DOCUMENTO --------------------------------
 % ----------------------------------------------------------------------------------------------
 
-% Classe e tamanho de letra do documento
 \documentclass[11pt,openright,twoside]{report}
-
 
 % ----------------------------------------------------------------------------------------------
 % --------------------------------- PACKAGES ESSENCIAIS ----------------------------------------
@@ -60,21 +65,46 @@
 }
 
 % ----------------------------------------------------------------------------------------------
-% --------------------------------- PACKAGES EXTRA----------------------------------------
+% --------------------------------- PACKAGES EXTRA/OPCIONAIS -----------------------------------
 % ----------------------------------------------------------------------------------------------
 
-%
+% Margens de pagina
+\usepackage[dvips]{geometry}
+\geometry{a4paper=true,portrait=true,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
+
+% Espaçamento entre linhas
+\usepackage{setspace}
+\setstretch{1.15}
+%\renewcommand{\baselinestretch}{1.15}
+
+% Tamanho e espaçamento de figuras e tabelas
+\usepackage{caption}
+\captionsetup{font={small,stretch=1.0}}
+
+% Contadores de figuras e tabelas
+\usepackage{chngcntr}
+\counterwithin{figure}{chapter}
+\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
+\counterwithin{table}{chapter}
+\renewcommand{\thetable}{\arabic{section}.\arabic{figure}}
+
+% Contador de equaçoes
+\usepackage{amsmath}
+\numberwithin{equation}{chapter}
+
+% Tamanho e espaçento dos footnotes
+\renewcommand{\footnotesize}{\fontsize{9pt}{11pt}\selectfont}
 
 % ----------------------------------------------------------------------------------------------
 % --------------------------- ALTERAR INFORMAÇOES RELATIVAS AO PROJECTO ------------------------
 % ----------------------------------------------------------------------------------------------
 
-\newcommand{\TITULO}{GERADORES DE RUÍDO UNIFORME PARA O TESTE DE CONVERSORES ANALÓGICO-DIGITAL}
-\newcommand{\Autor}{Cláudio Filipe Duarte dos Santos}
-\newcommand{\AutorNumAluno}{42208}
+\newcommand{\TITULO}{TÍTULO DA DISSERTAÇÃO EM MAIÚSCULAS}
+\newcommand{\Autor}{Nome completo do aluno}
+\newcommand{\AutorNumAluno}{4xxxx}
 
 %Orientador e CoOrientador *sem* titulos (e.g. Prof. Doutor)
-\newcommand{\Orientador}{Guiomar Evans}
+\newcommand{\Orientador}{Nome Completo do Orientador}
 \newcommand{\CoOrientador}{Nome Completo do Co-Orientador} %se nao se aplicar, nao importa o que aqui esteja
 
 %Se aplicavel, o supervisor pode ter um titulo (Dr., Eng.) colocado aqui
@@ -88,7 +118,7 @@
 %\newcommand{\TIPO}{TRABALHO DE PROJETO }
 
 % Comentar/descomentar conforme conveniente
-\newcommand{\MESTRADO}{MESTRADO INTEGRADO DE ENGENHARIA FÍSICA}
+\newcommand{\MESTRADO}{MESTRADO EM -- PREENCHER --}
 
 % Comentar/descomentar conforme conveniente
 \newcommand{\IdiomaTese}{\selectlanguage{portuguese}}
@@ -106,53 +136,15 @@
 	/Author (\Autor)
 	/Title (\TITULO)
 	/Subject (\MESTRADO)
-	/Keywords ()
+	/Keywords () % inserir palavras chaves
 	/CreationDate (D:\today)
 }
 \fi
 
 % ----------------------------------------------------------------------------------------------
-% ----------------------------------- MARGENS DA PAGINA ----------------------------------------
+% --------------------------------------- INICIALIZAÇAO ----------------------------------------
 % ----------------------------------------------------------------------------------------------
-\usepackage[dvips]{geometry}
-\geometry{a4paper=true,portrait=true,left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm}
 
-% ----------------------------------------------------------------------------------------------
-% --------------------------------- ESPAÇAMENTO ENTRE LINHAS -----------------------------------
-% ----------------------------------------------------------------------------------------------
-\usepackage{setspace}
-\setstretch{1.15}
-%\renewcommand{\baselinestretch}{1.15}
-
-% ----------------------------------------------------------------------------------------------
-% ------------------------ TAMANHO E ESPAÇAMENTO FIGURAS E TABELAS -----------------------------
-% ----------------------------------------------------------------------------------------------
-\usepackage{caption}
-\captionsetup{font={small,stretch=1.0}}
-
-% ----------------------------------------------------------------------------------------------
-% ---------------------------- CONTADORES FIGURAS E TABELAS ------------------------------------
-% ----------------------------------------------------------------------------------------------
-\usepackage{chngcntr}
-\counterwithin{figure}{chapter}
-\renewcommand{\thefigure}{\arabic{chapter}.\arabic{figure}}
-\counterwithin{table}{chapter}
-\renewcommand{\thetable}{\arabic{section}.\arabic{figure}}
-
-% ----------------------------------------------------------------------------------------------
-% ------------------------------- CONTADORES EQUAÇOES ------------------------------------------
-% ----------------------------------------------------------------------------------------------
-\usepackage{amsmath}
-\numberwithin{equation}{chapter}
-
-% ----------------------------------------------------------------------------------------------
-% --------------------------- TAMANHO E ESPAÇAMENTO FOOTNOTES ----------------------------------
-% ----------------------------------------------------------------------------------------------
-\renewcommand{\footnotesize}{\fontsize{9pt}{11pt}\selectfont}
-
-% ----------------------------------------------------------------------------------------------
-% --------------------------------- CAPA E PAG. DE ROSTO ---------------------------------------
-% ----------------------------------------------------------------------------------------------
 \begin{document}
 
 \title{\TITULO}
@@ -166,6 +158,7 @@
 % ----------------------------------------------------------------------------------------------
 % ---------------------------------------- CAPA ------------------------------------------------
 % ----------------------------------------------------------------------------------------------
+
 \begin{center}
 \vspace{1cm}\normalfont\normalfont
 \vfill
@@ -174,11 +167,10 @@
 % Nome da Faculdade
 \normalsize\uppercase{Faculdade de Ciências}\\
 % Nome do Departamento
-\normalsize\uppercase{Departamento de Física}\\
+\normalsize\uppercase{Departamento de -- PREENCHER --}\\
 \vspace{1cm}
 % Logotipo da Faculdade
 \includegraphics[scale=.45]{images/logo_fcul.png}\\
-%\includegraphics[scale=.6]{images/logo_ul.png}\\
 
 \vspace{2.5cm}
 \vfill
@@ -188,7 +180,7 @@
 \vspace{1.3cm}
 %%
 %% Eliminar na versao definitiva
-\normalsize{\bf{Relatório de Estágio I}}
+\normalsize{\bf{Documento Provisório}}
 %%
 \vspace{1cm}
 \vfill
@@ -215,13 +207,10 @@
 % ----------------------------------------------------------------------------------------------
 % -------------------------------------- PAGINA DE ROSTO ---------------------------------------
 % ----------------------------------------------------------------------------------------------
+
 \newpage
 \mbox{}
 \newpage
-
-% ----------------------------------------------------------------------------------------------
-% ------------------------------- FIM DA CAPA E PAG. DE ROSTO-----------------------------------
-% ----------------------------------------------------------------------------------------------
 
 % Inserir numeração romana
 \setcounter{page}{1}
@@ -230,54 +219,67 @@
 % ----------------------------------------------------------------------------------------------
 % ----------------------------- DEDICATORIA/AGRADECIMENTOS -------------------------------------
 % ----------------------------------------------------------------------------------------------
+
+% Descomentar quando feito
 %\input{chapters/dedicatoria}
 %\newpage
 
 % ----------------------------------------------------------------------------------------------
 % -------------------------------- RESUMO PORTUGUES --------------------------------------------
 % ----------------------------------------------------------------------------------------------
+
+% Descomentar quando feito
 %\input{chapters/resumo_pt}
 %\newpage
 
 % ----------------------------------------------------------------------------------------------
 % -------------------------------- RESUMO INGLES -----------------------------------------------
 % ----------------------------------------------------------------------------------------------
+
+% Descomentar quando feito
 %\input{chapters/resumo_eng}
 %\newpage
 
 % ----------------------------------------------------------------------------------------------
 % ----------------------------------- INDICE ---------------------------------------------------
 % ----------------------------------------------------------------------------------------------
+
 \tableofcontents
 \LIMPAC
 
 % ----------------------------------------------------------------------------------------------
 % ------------------------------- LISTA TABELAS ------------------------------------------------
 % ----------------------------------------------------------------------------------------------
+
 \listoftables
 \LIMPAC
 
 % ----------------------------------------------------------------------------------------------
 % ------------------------------- LISTA FIGURAS ------------------------------------------------
 % ----------------------------------------------------------------------------------------------
+
 \listoffigures
 \LIMPAC
 
 % ----------------------------------------------------------------------------------------------
 % ------------------------------- LISTA ABREVIATURAS -------------------------------------------
 % ----------------------------------------------------------------------------------------------
+
+% Descomentar quando feito
 %\input{chapters/abreviaturas}
 %\newpage
-
 
 % ----------------------------------------------------------------------------------------------
 % ------------------------------- TEXTO PRINCIPAL ----------------------------------------------
 % ----------------------------------------------------------------------------------------------
+
 \setcounter{page}{1}
 \pagenumbering{arabic}
 
-bla
+% Texto template
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr,  sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
+% Descomentar quando feito
 %\input{chapters/introducao}
 %\input{chapters/chapter02}
 %\input{chapters/chapter03}
